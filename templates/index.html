@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Poker</title>
+    </head>
+
+    <body>
+        <div id="mode-text-div">
+            <h1>
+                Poker
+            </h1>
+        </div>
+
+        {% include "menu.html" %}
+
+        <div id="rectangle-main">
+            <div id="main-text">
+                Main menu
+            </div>
+        </div>
+
+        <script>
+            function redirect_func(path){
+                window.location.href = path;
+            }
+        </script>
+    </body>
+</html>

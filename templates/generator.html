@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<link rel="stylesheet" href="{% static 'generator.css' %}">
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Poker</title>
+    </head>
+
+    <body>
+        <div id="mode-text-div">
+            <h1>
+                Generator
+            </h1>
+        </div>
+
+        {% include "menu.html" %}
+
+        <div id="rectangle-main" style="font-size: 30px">
+
+            <div id="players">
+                {% for player, prediction in players %}
+                    <div id="player">
+                        <div id="name">
+                            {{ player.name }} ({{ prediction }}%)
+                        </div>
+                        <div id="cards">
+                            {{ player.cards }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div id="dealer">
+                <div id="name">
+                    {{ dealer.name }} ({{ dealer_prediction }}%)
+                </div>
+                <div id="cards">
+                    {{ dealer_cards }}
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function redirect_func(path){
+                window.location.href = path;
+            }
+        </script>
+    </body>
+</html>

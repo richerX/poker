@@ -1,0 +1,45 @@
+#players {
+    position: relative;
+    height: 40%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-top: 5%;
+}
+
+#player {
+    width: 100%;
+
+    display:inline;
+}
+
+#dealer {
+    position: relative;
+    height: 40%;
+    width: 100%;
+
+    margin-top: 5%;
+}
+
+#name {
+    height: 20%;
+    text-align: center;
+}
+
+
+#cards {
+    position: relative;
+    width: 60%;
+    height: 70%;
+    left: 20%;
+    bottom: 5%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
