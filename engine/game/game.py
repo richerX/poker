@@ -1,3 +1,5 @@
+from typing import Tuple
+
 from engine.game.deck import Deck
 from engine.game.player import Player
 from engine.toolkit import constants
@@ -21,15 +23,17 @@ class Game:
         response = GeneratorResponse(self.players, self.dealer)
         for index, tour in enumerate(constants.tours):
             self.dealer.add(self.deck.pick(tour))
-            response.predictions.append(self.show())
+            predictions, combination = self.show()
+            response.predictions.append(predictions)
+            response.combinations.append(combination)
         return response
 
-    def show(self) -> list[int]:
-        chances: list[int] = Predictor(self.deck.cards, self.dealer.cards, [player.cards for player in self.players]).chances
+    def show(self) -> Tuple[list[int], Combination]:
+        predictions: list[int] = Predictor(self.deck.cards, self.dealer.cards, [player.cards for player in self.players]).chances
         everybody: list[Player] = self.players + [self.dealer]
         combination: Combination = max([Collection(player.cards + self.dealer.cards).powerful for player in self.players], key = lambda x: x.power)
         if self.display:
             for index, player in enumerate(everybody):
-                print(f"{player} | {chances[index]}%\n")
+                print(f"{player} | {predictions[index]}%\n")
             print(f"{'Best': <10} | {combination}\n\n")
-        return chances
+        return predictions, combination

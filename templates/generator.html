@@ -3,6 +3,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <link rel="stylesheet" href="{% static 'generator.css' %}">
+<link rel="stylesheet" href="{% static 'cards' %}">
 
 <html lang="en">
     <head>
@@ -28,7 +29,9 @@
                             {{ player.name }} ({{ prediction }}%)
                         </div>
                         <div id="cards">
-                            {{ player.cards }}
+                            {% for card in player.cards %}
+                                <img border="1" src="../static/media/{{ card.rank }}-{{ card.suit }}.png" alt="card">
+                            {% endfor %}
                         </div>
                     </div>
                 {% endfor %}
@@ -39,7 +42,9 @@
                     {{ dealer.name }} ({{ dealer_prediction }}%)
                 </div>
                 <div id="cards">
-                    {{ dealer_cards }}
+                    {% for card in dealer_cards %}
+                        <img src="../static/media/{{ card.rank }}-{{ card.suit }}.png" alt="card">
+                    {% endfor %}
                 </div>
             </div>
         </div>

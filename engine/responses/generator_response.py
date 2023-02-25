@@ -1,4 +1,5 @@
 from engine.game.player import Player
+from engine.toolkit.combination import Combination
 
 
 class GeneratorResponse:
@@ -6,6 +7,7 @@ class GeneratorResponse:
         self.players: list[Player] = players
         self.dealer: Player = dealer
         self.predictions: list[list[int]] = list()
+        self.combinations: list[Combination] = list()
 
     def __repr__(self):
         return f"{self.players} {self.dealer} {self.predictions}"
