@@ -1,0 +1,12 @@
+{% for player, prediction, files in info %}
+    <div id={{ actor }}>
+        <div id="name">
+            {{ player.name }} ({{ prediction }}%)
+        </div>
+        <div id="cards">
+            {% for file in files %}
+                <img id="card-img" src="../static/media/{{ file }}" alt="card">
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}

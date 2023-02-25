@@ -10,11 +10,29 @@ def index_page(request):
     return render(request, "index.html")
 
 
+def get_card_file(card, combination):
+    return f"{card.rank}-{card.suit}{'-frame' if card in combination.cards else ''}.png"
+
+
 def generate_mode_page(request, stage = 0):
     response: GeneratorResponse = Game().play()
     template = loader.get_template('generator.html')
-    context = {"players": zip(response.players, response.predictions[stage][:-1]),
-               "dealer": response.dealer,
-               "dealer_cards": response.dealer.cards[:sum(tours[:stage + 1])],
-               "dealer_prediction": response.predictions[stage][-1]}
+
+    # combination
+    current_combination = response.combinations[stage]
+
+    # players_info
+    players = response.players
+    players_predictions = response.predictions[stage][:-1]
+    players_files = [[get_card_file(card, current_combination) for card in player.cards] for player in players]
+
+    # dealer_info
+    dealer = [response.dealer]
+    dealer_prediction = [response.predictions[stage][-1]]
+    dealer_files = [[get_card_file(card, current_combination) for card in response.dealer.cards[:sum(tours[:stage + 1])]]]
+
+    context = {"combination": current_combination,
+               "players_info": zip(players, players_predictions, players_files),
+               "dealer_info": zip(dealer, dealer_prediction, dealer_files)}
+
     return HttpResponse(template.render(context, request))

@@ -18,41 +18,20 @@
             </h1>
         </div>
 
-        {% include "menu.html" %}
+        {% include "sections/menu.html" %}
 
         <div id="rectangle-main" style="font-size: 30px">
-
             <div id="players">
-                {% for player, prediction in players %}
-                    <div id="player">
-                        <div id="name">
-                            {{ player.name }} ({{ prediction }}%)
-                        </div>
-                        <div id="cards">
-                            {% for card in player.cards %}
-                                <img border="1" src="../static/media/{{ card.rank }}-{{ card.suit }}.png" alt="card">
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endfor %}
+                {% include "sections/actor.html" with actor="player" info=players_info %}
             </div>
 
-            <div id="dealer">
-                <div id="name">
-                    {{ dealer.name }} ({{ dealer_prediction }}%)
-                </div>
-                <div id="cards">
-                    {% for card in dealer_cards %}
-                        <img src="../static/media/{{ card.rank }}-{{ card.suit }}.png" alt="card">
-                    {% endfor %}
-                </div>
+            {% include "sections/actor.html" with actor="dealer" info=dealer_info %}
+
+            <div align="center">
+                Best combination: {{ combination }}
             </div>
         </div>
 
-        <script>
-            function redirect_func(path){
-                window.location.href = path;
-            }
-        </script>
+        {% include "sections/scripts.html" %}
     </body>
 </html>
