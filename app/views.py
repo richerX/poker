@@ -27,9 +27,11 @@ def generate_mode_page(request, stage = 0):
     players_files = [[get_card_file(card, current_combination) for card in player.cards] for player in players]
 
     # dealer_info
+    shown_cards = sum(tours[:stage + 1])
+    hided_cards = sum(tours) - shown_cards
     dealer = [response.dealer]
     dealer_prediction = [response.predictions[stage][-1]]
-    dealer_files = [[get_card_file(card, current_combination) for card in response.dealer.cards[:sum(tours[:stage + 1])]]]
+    dealer_files = [[get_card_file(card, current_combination) for card in response.dealer.cards[:shown_cards]] + ["jokers.png"] * hided_cards]
 
     context = {"combination": current_combination,
                "players_info": zip(players, players_predictions, players_files),
