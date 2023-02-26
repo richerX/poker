@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
 
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
 #player {
@@ -17,10 +17,8 @@
 
 #dealer {
     position: relative;
-    height: 35%;
+    height: 40%;
     width: 100%;
-
-    margin-top: 5%;
 }
 
 #name {

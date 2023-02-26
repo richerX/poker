@@ -3,7 +3,6 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
 <link rel="stylesheet" href="{% static 'generator.css' %}">
-<link rel="stylesheet" href="{% static 'cards' %}">
 
 <html lang="en">
     <head>
@@ -12,13 +11,7 @@
     </head>
 
     <body>
-        <div id="mode-text-div">
-            <h1>
-                Generator
-            </h1>
-        </div>
-
-        {% include "sections/menu.html" %}
+        {% include "sections/menu.html" with mode="Generator"%}
 
         <div id="rectangle-main" style="font-size: 30px">
             <div id="players">
@@ -27,7 +20,7 @@
 
             {% include "sections/actor.html" with actor="dealer" cur_context=dealer_context %}
 
-            <div align="center">
+            <div style="text-align: center">
                 Best combination: {{ combination }}
             </div>
         </div>

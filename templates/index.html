@@ -10,13 +10,7 @@
     </head>
 
     <body>
-        <div id="mode-text-div">
-            <h1>
-                Poker
-            </h1>
-        </div>
-
-        {% include "sections/menu.html" %}
+        {% include "sections/menu.html" with mode="Main Menu" %}
 
         <div id="rectangle-main">
             <div id="main-text">
@@ -24,10 +18,6 @@
             </div>
         </div>
 
-        <script>
-            function redirect_func(path){
-                window.location.href = path;
-            }
-        </script>
+        {% include "sections/scripts.html" %}
     </body>
 </html>
