@@ -20,9 +20,12 @@
 
             {% include "sections/actor.html" with actor="dealer" cur_context=dealer_context %}
 
-{#            <div style="text-align: center">#}
-{#                Best combination: {{ best_combination }}#}
-{#            </div>#}
+            <form action="" method="post">
+                {% csrf_token %}
+                <input id="generator-input-1" type="submit" name="prev" value="Previous" class="btn">
+                <input id="generator-input-2" type="submit" name="next" value="Next" class="btn">
+                <input type="hidden" name="stage" value="{{ stage }}">
+            </form>
         </div>
 
         {% include "sections/scripts.html" %}

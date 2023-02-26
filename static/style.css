@@ -83,7 +83,7 @@ body {
     /*background: #6897bb;*/
 }
 
-button {
+#menu-button {
     width: 17%;
     height: 90%;
 
@@ -97,7 +97,7 @@ button {
     margin-inline: 3%;
 }
 
-button:hover {
+#menu-button:hover {
     background-color: #3b82f6;
     box-shadow: 0 0 0 5px #3b83f65f;
     color: #fff;

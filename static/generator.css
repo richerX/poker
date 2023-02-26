@@ -55,3 +55,18 @@
     text-align: center;
     font-size: 70%;
 }
+
+.btn {
+    position: absolute;
+    width: 10%;
+    height: 5%;
+    bottom: 5%;
+}
+
+#generator-input-1 {
+    left: 35%;
+}
+
+#generator-input-2 {
+    left: 55%;
+}

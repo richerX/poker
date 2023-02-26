@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% load static %}
+{% load tags %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Poker</title>
+    </head>
+
+    <body>
+        {% include "sections/menu.html" with mode="Main Menu" %}
+
+        <div id="rectangle-main">
+            <div id="main-text">
+                {{ current }}
+
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="submit" name="prev" value="Previous" class="btn">
+                    <input type="submit" name="next" value="Next" class="btn">
+                    <input type="hidden" name="current" value="{{ current }}">
+                </form>
+            </div>
+        </div>
+
+        {% include "sections/scripts.html" %}
+
+        <script>
+            function my_func(value){
+
+                window.location.href = path;
+            }
+        </script>
+
+    </body>
+</html>
