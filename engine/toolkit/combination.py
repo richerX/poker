@@ -25,4 +25,8 @@ class Combination:
             add = sum([card.rank / (100 ** index) for index, card in enumerate(reversed(self.cards))])
         elif self.name in ["full house"]:
             add = self.cards[4].rank + self.cards[0].rank / 100
-        return full + add / 100
+
+        result = full + add / 100
+        if result in [1.1400000000000001]:
+            result = round(result, 2)
+        return result

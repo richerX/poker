@@ -1,5 +1,5 @@
 :root {
-    --menu-height: 20%;
+    --menu-height: 15%;
 
     --main-height: calc(100% - var(--menu-height));
 }

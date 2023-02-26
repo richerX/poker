@@ -23,17 +23,19 @@ class Game:
         response = GeneratorResponse(self.players, self.dealer)
         for index, tour in enumerate(constants.tours):
             self.dealer.add(self.deck.pick(tour))
-            predictions, combination = self.show()
+            predictions, best_combination, combinations = self.show()
             response.predictions.append(predictions)
-            response.combinations.append(combination)
+            response.best_combinations.append(best_combination)
+            response.players_combinations.append(combinations)
         return response
 
-    def show(self) -> Tuple[list[int], Combination]:
+    def show(self) -> Tuple[list[int], Combination, list[Combination]]:
         predictions: list[int] = Predictor(self.deck.cards, self.dealer.cards, [player.cards for player in self.players]).chances
         everybody: list[Player] = self.players + [self.dealer]
-        combination: Combination = max([Collection(player.cards + self.dealer.cards).powerful for player in self.players], key = lambda x: x.power)
+        combinations: list[Combination] = [Collection(player.cards + self.dealer.cards).powerful for player in self.players]
+        best_combination: Combination = max(combinations, key = lambda x: x.power)
         if self.display:
             for index, player in enumerate(everybody):
                 print(f"{player} | {predictions[index]}%\n")
-            print(f"{'Best': <10} | {combination}\n\n")
-        return predictions, combination
+            print(f"{'Best': <10} | {best_combination}\n\n")
+        return predictions, best_combination, combinations

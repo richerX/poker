@@ -7,6 +7,11 @@
             {% for file in player_context.files %}
                 <img id="card-img" src="../static/media/{{ file }}" alt="card">
             {% endfor %}
+            {% if actor == "player" %}
+                <div id="combination">
+                    {{ player_context.combination.name }} {{ player_context.combination.power }}
+                </div>
+            {% endif %}
         </div>
     </div>
 {% endfor %}
