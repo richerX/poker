@@ -22,10 +22,10 @@
 
         <div id="rectangle-main" style="font-size: 30px">
             <div id="players">
-                {% include "sections/actor.html" with actor="player" info=players_info %}
+                {% include "sections/actor.html" with actor="player" cur_context=players_context %}
             </div>
 
-            {% include "sections/actor.html" with actor="dealer" info=dealer_info %}
+            {% include "sections/actor.html" with actor="dealer" cur_context=dealer_context %}
 
             <div align="center">
                 Best combination: {{ combination }}

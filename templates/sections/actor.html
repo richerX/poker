@@ -1,10 +1,10 @@
-{% for player, prediction, files in info %}
+{% for player_context in cur_context %}
     <div id={{ actor }}>
         <div id="name">
-            {{ player.name }} ({{ prediction }}%)
+            {{ player_context.player.name }} ({{ player_context.prediction }}%)
         </div>
         <div id="cards">
-            {% for file in files %}
+            {% for file in player_context.files %}
                 <img id="card-img" src="../static/media/{{ file }}" alt="card">
             {% endfor %}
         </div>
