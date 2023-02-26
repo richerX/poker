@@ -107,11 +107,12 @@ class TestCards:
         divides: int = 2
         filepath: str = "vision/img"
         threshold: float = 0.65
-        detector: Detector = Detector()
-        for img in listdir(filepath):
-            keys_string: str = img.strip(".jpg")
-            keys: list[str] = [keys_string[i:i + divides] for i in range(0, len(keys_string), divides)]
-            results: dict[str, float] = detector.detect(f"{filepath}/{img}", save = False)
-            for key in keys:
-                assert results.get(key, 0) > threshold
-            assert len([key for key in results.keys() if results[key] > threshold]) == len(keys)
+        for version in ["v5", "v8"]:
+            detector: Detector = Detector(version = version)
+            for img in listdir(filepath):
+                keys_string: str = img.strip(".jpg")
+                keys: list[str] = [keys_string[i:i + divides] for i in range(0, len(keys_string), divides)]
+                results: dict[str, float] = detector.detect(f"{filepath}/{img}", save = False)
+                for key in keys:
+                    assert results.get(key, 0) > threshold
+                assert len([key for key in results.keys() if results[key] > threshold]) == len(keys)
