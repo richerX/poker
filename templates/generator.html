@@ -14,18 +14,22 @@
         {% include "sections/menu.html" with mode="Generator"%}
 
         <div id="rectangle-main" style="font-size: 30px">
-            <div id="players">
-                {% include "sections/actor.html" with actor="player" cur_context=players_context %}
-            </div>
+            {% for stage in stages %}
+                <div id="stage-{{ stage.stage }}" class="stage" {% if stage.stage > 0 %}style="display: none; height: 0"{% endif %}>
+                    <div id="players">
+                        {% include "sections/actor.html" with actor="player" players_context=stage.players_context %}
+                    </div>
 
-            {% include "sections/actor.html" with actor="dealer" cur_context=dealer_context %}
+                    {% include "sections/actor.html" with actor="dealer" players_context=stage.dealer_context %}
 
-            <form action="" method="post">
-                {% csrf_token %}
-                <input id="generator-input-1" type="submit" name="prev" value="Previous" class="btn">
-                <input id="generator-input-2" type="submit" name="next" value="Next" class="btn">
-                <input type="hidden" name="stage" value="{{ stage }}">
-            </form>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input id="generator-input-1" type="submit" name="prev" value="Previous" class="btn">
+                        <input id="generator-input-2" type="submit" name="next" value="Next" class="btn">
+                        <input type="hidden" name="stage" value="{{ stage }}">
+                    </form>
+                </div>
+            {% endfor %}
         </div>
 
         {% include "sections/scripts.html" %}

@@ -6,7 +6,7 @@ from engine.toolkit import constants
 from engine.toolkit.combination import Combination
 from engine.toolkit.collection import Collection
 from engine.toolkit.predictor import Predictor
-from engine.responses.generator_response import GeneratorResponse
+from engine.responses.generator import GeneratorResponse
 
 
 class Game:
