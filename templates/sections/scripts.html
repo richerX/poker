@@ -1,4 +1,18 @@
 <script>
+    let stage = 0;
+    let max_stage = {{ stages|length }} - 1
+
+    function change_stage(delta){
+        stage += delta
+        stage = Math.max(Math.min(stage, max_stage), 0)
+        for (let index = 0; index <= max_stage; index++) {
+            document.getElementById("stage-" + index).style.display = "none";
+            document.getElementById("stage-" + index).style.height = "0";
+        }
+        document.getElementById("stage-" + stage).style.display = "block";
+        document.getElementById("stage-" + stage).style.height = "100%";
+    }
+
     function redirect_func(path){
         window.location.href = path;
     }

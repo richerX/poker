@@ -3,8 +3,8 @@
         <img src="../../static/media/cards.png" alt="LOGO" height="100%">
     </div>
 
-    <div id="mode-text-div">
-        <h1>
+    <div>
+        <h1 id="mode-text-h1">
             {{ mode }}
         </h1>
     </div>
@@ -15,15 +15,15 @@
         </button>
 
         <button id="menu-button" type="submit" onclick="redirect_func('/generator')">
-            <strong>Generator Mode</strong>
+            <strong>Generator</strong>
+        </button>
+
+        <button id="menu-button" type="submit" onclick="redirect_func('/')">
+            <strong>AI</strong>
         </button>
 
         <button id="menu-button" type="submit" onclick="redirect_func('/test')">
             <strong>Test</strong>
-        </button>
-
-        <button id="menu-button" type="submit" onclick="redirect_func('/')">
-            <strong>Mode 3</strong>
         </button>
     </div>
 </div>

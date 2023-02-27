@@ -13,10 +13,11 @@
     <body>
         {% include "sections/menu.html" with mode="Generator"%}
 
-        <div id="rectangle-main" style="font-size: 30px">
+        <div id="rectangle-main">
             {% for stage in stages %}
                 <div id="stage-{{ stage.stage }}" class="stage" {% if stage.stage > 0 %}style="display: none; height: 0"{% endif %}>
-                    <div style="height: 7%;"></div>
+                    <div id="skip"></div>
+
                     <div id="players">
                         {% include "sections/actor.html" with actor="player" players_context=stage.players_context %}
                     </div>
@@ -35,22 +36,6 @@
                 </div>
             {% endfor %}
         </div>
-
-        <script>
-            let stage = 0;
-            let max_stage = {{ stages|length }} - 1
-
-            function change_stage(delta){
-                stage += delta
-                stage = Math.max(Math.min(stage, max_stage), 0)
-                for (let index = 0; index <= max_stage; index++) {
-                    document.getElementById("stage-" + index).style.display = "none";
-                    document.getElementById("stage-" + index).style.height = "0";
-                }
-                document.getElementById("stage-" + stage).style.display = "block";
-                document.getElementById("stage-" + stage).style.height = "100%";
-            }
-        </script>
 
         {% include "sections/scripts.html" %}
     </body>
