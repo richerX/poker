@@ -1,14 +1,4 @@
 <div id="rectangle-menu">
-    <div id="logo-div">
-        <img src="../../static/media/cards.png" alt="LOGO" height="100%">
-    </div>
-
-    <div>
-        <h1 id="mode-text-h1">
-            {{ mode }}
-        </h1>
-    </div>
-
     <div id="button-div">
         <button id="menu-button" type="submit" onclick="redirect_func('/')">
             <strong>Menu</strong>
@@ -25,5 +15,36 @@
         <button id="menu-button" type="submit" onclick="redirect_func('/test')">
             <strong>Test</strong>
         </button>
+    </div>
+
+    <div id="graphics-div">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+
+    <div>
+        <h1 id="mode-text-h1">
+            Poker
+{#            {{ mode }}#}
+        </h1>
+    </div>
+
+    <div id="logo-div">
+        <img src="../../static/media-2/cards.png" alt="LOGO" height="70%">
     </div>
 </div>
