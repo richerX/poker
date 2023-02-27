@@ -14,6 +14,10 @@ def generate_mode_page(request):
     return HttpResponse(template.render(context, request))
 
 
+def ai_page(request):
+    return render(request, "ai.html")
+
+
 def test_page(request, current = 1):
     template = loader.get_template('test.html')
 
