@@ -5,6 +5,9 @@ from engine.toolkit.card import Card
 
 
 class Combination:
+    combination_round = {"high card": 2, "pair": 2, "three": 2, "four": 2, "straight": 2,
+                         "straight flush": 2, "two pair": 4, "full house": 4, "flush": 10}
+
     def __init__(self, cards: tuple[Card, ...], name: str):
         self.cards: tuple[Card] = cards
         self.name: str = name
@@ -25,8 +28,4 @@ class Combination:
             add = sum([card.rank / (100 ** index) for index, card in enumerate(reversed(self.cards))])
         elif self.name in ["full house"]:
             add = self.cards[4].rank + self.cards[0].rank / 100
-
-        result = full + add / 100
-        if result in [1.1400000000000001]:
-            result = round(result, 2)
-        return result
+        return round(full + add / 100, self.combination_round[self.name])
