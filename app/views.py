@@ -8,18 +8,18 @@ def index_page(request):
     return render(request, "index.html")
 
 
-def generate_mode_page(request):
+def generator_page(request):
     template = loader.get_template('generator.html')
     context = {"stages": Game().play().get_context()}
     return HttpResponse(template.render(context, request))
 
 
-def ai_page(request):
-    return render(request, "ai.html")
+def predictor_page(request):
+    return render(request, "predictor.html")
 
 
-def test_page(request, current = 1):
-    template = loader.get_template('test.html')
+def visor_page(request, current = 1):
+    template = loader.get_template('visor.html')
 
     if request.POST.get('prev'):
         current = int(request.POST.get('current')) - 1
