@@ -1,0 +1,12 @@
+{% for player in players_length %}
+    <div class={{ actor }}>
+        <div class="name">
+            {{ actor|capfirst }}
+        </div>
+        <div class="cards">
+            {% for card in cards_length %}
+                <img class="card-img" src="../static/media/jokers.png" alt="card">
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
