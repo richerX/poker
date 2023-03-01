@@ -2,7 +2,7 @@
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
-<link rel="stylesheet" href="{% static 'index.css' %}">
+<link rel="stylesheet" href="{% static 'pages-css/index.css' %}">
 
 <html lang="en">
     <head>
@@ -11,15 +11,15 @@
     </head>
 
     <body>
-        {% include "sections/menu.html" with mode="Main Menu" %}
+        {% include "sections/header.html" %}
 
-        <div id="rectangle-main">
-            <div id="main-text">
+        <main class="rectangle-main">
+            <div class="main-text">
                 Main menu
             </div>
-        </div>
+        </main>
 
-        {% include "sections/disclaimer.html" %}
+        {% include "sections/footer.html" with mode="index" %}
         {% include "sections/scripts.html" %}
     </body>
 </html>

@@ -1,14 +1,14 @@
 {% for player_context in players_context %}
-    <div id={{ actor }}>
-        <div id="name">
+    <div class={{ actor }}>
+        <div class="name">
             {{ player_context.player.name }} ({{ player_context.prediction }}%)
         </div>
-        <div id="cards">
+        <div class="cards">
             {% for file in player_context.files %}
-                <img id="card-img" src="../static/media/{{ file }}" alt="card">
+                <img class="card-img" src="../static/media/{{ file }}" alt="card">
             {% endfor %}
             {% if actor == "player" %}
-                <div id="combination">
+                <div class="combination">
                     {{ player_context.combination.name }} {{ player_context.combination.power }}
                 </div>
             {% endif %}

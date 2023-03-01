@@ -6,11 +6,11 @@
     left: 0;
 }
 
-#skip {
+.skip {
     height: 7%;
 }
 
-#players {
+.players {
     position: relative;
     height: 40%;
     width: 100%;
@@ -18,26 +18,26 @@
     justify-content: center;
 }
 
-#player {
+.player {
     position: relative;
     height: 100%;
     width: 100%;
     display:inline;
 }
 
-#dealer {
+.dealer {
     position: relative;
     height: 40%;
     width: 100%;
 }
 
-#name {
+.name {
     height: 17%;
     text-align: center;
 }
 
 
-#cards {
+.cards {
     position: relative;
     width: 60%;
     height: 70%;
@@ -53,11 +53,11 @@
     border-radius: 20px;
 }
 
-#card-img {
+.card-img {
     height: 75%;
 }
 
-#combination {
+.combination {
     position: absolute;
     width: 100%;
     height: 10%;
@@ -73,7 +73,7 @@
     bottom: 5%;
 }
 
-#next-prev-div {
+.next-prev-div {
     width: 100%;
     height: 10%;
     display: flex;

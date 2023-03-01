@@ -2,7 +2,7 @@
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
-<link rel="stylesheet" href="{% static 'ai.css' %}">
+<link rel="stylesheet" href="{% static 'pages-css/predictor.css' %}">
 
 <html lang="en">
     <head>
@@ -11,15 +11,15 @@
     </head>
 
     <body>
-        {% include "sections/menu.html" with mode="Main Menu" %}
+        {% include "sections/header.html" %}
 
-        <div id="rectangle-main">
-            <div style="text-align: center; margin-top: 20%">
-                AI
+        <main class="rectangle-main">
+            <div class="main-text">
+                Predictor
             </div>
-        </div>
+        </main>
 
-        {% include "sections/disclaimer.html" %}
+        {% include "sections/footer.html" with mode="predictor" %}
         {% include "sections/scripts.html" %}
     </body>
 </html>

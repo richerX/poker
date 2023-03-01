@@ -1,0 +1,11 @@
+<footer class="disclaimer-div">
+    {% if mode == "index" %}
+        <img class="disclaimer-img" src="../../static/media-2/menu.png" alt="Disclaimer">
+    {% elif mode == "generator" %}
+        <img class="disclaimer-img" src="../../static/media-2/chips.png" alt="Disclaimer">
+    {% elif mode == "predictor" %}
+        <img class="disclaimer-img" src="../../static/media-2/calculator.png" alt="Disclaimer">
+    {% elif mode == "visor" %}
+        <img class="disclaimer-img" src="../../static/media-2/vision.png" alt="Disclaimer">
+    {% endif %}
+</footer>

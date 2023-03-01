@@ -2,7 +2,7 @@
 
 {% load static %}
 <link rel="stylesheet" href="{% static 'style.css' %}">
-<link rel="stylesheet" href="{% static 'generator.css' %}">
+<link rel="stylesheet" href="{% static 'pages-css/generator.css' %}">
 
 <html lang="en">
     <head>
@@ -11,37 +11,37 @@
     </head>
 
     <body>
-        {% include "sections/menu.html" with mode="Generator"%}
+        {% include "sections/header.html" %}
 
-        <div id="rectangle-main">
+        <main class="rectangle-main">
             {% for stage in stages %}
                 <div id="stage-{{ stage.stage }}" class="stage" {% if stage.stage > 0 %}style="display: none; height: 0"{% endif %}>
-                    <div id="skip"></div>
+                    <div class="skip"></div>
 
-                    <div id="players">
+                    <div class="players">
                         {% include "sections/actor.html" with actor="player" players_context=stage.players_context %}
                     </div>
 
                     {% include "sections/actor.html" with actor="dealer" players_context=stage.dealer_context %}
 
-                    <div id="next-prev-div">
-                        <button id="menu-button" type="submit" onclick="change_stage(-1)" style="width: 10%; height: 70%;">
+                    <div class="next-prev-div">
+                        <button class="menu-button" type="submit" onclick="change_stage(-1)" style="width: 10%; height: 70%;">
                             <strong>Previous</strong>
                         </button>
 
-                        <button id="menu-button" type="submit" onclick="change_stage(1)" style="width: 10%; height: 70%;">
+                        <button class="menu-button" type="submit" onclick="change_stage(1)" style="width: 10%; height: 70%;">
                             <strong>Next</strong>
                         </button>
 
-                        <button id="menu-button" type="submit" onclick="redirect_func('/generator')" style="width: 10%; height: 70%;">
+                        <button class="menu-button" type="submit" onclick="redirect_func('/generator')" style="width: 10%; height: 70%;">
                             <strong>New game</strong>
                         </button>
                     </div>
                 </div>
             {% endfor %}
-        </div>
+        </main>
 
-        {% include "sections/disclaimer.html" %}
+        {% include "sections/footer.html" with mode="generator" %}
         {% include "sections/scripts.html" %}
     </body>
 </html>
