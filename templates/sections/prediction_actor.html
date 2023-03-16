@@ -5,7 +5,38 @@
         </div>
         <div class="cards">
             {% for card in cards_length %}
-                <img class="card-img" src="../static/media/jokers.png" alt="card">
+                <div style="height: 100%">
+                    <img class="card-img" src="../static/media/jokers.png" alt="card">
+
+                    <div class="drop-down-menu-div">
+                        <label for="card-rank-{{ player }}-{{ card }}"></label>
+                        <select class="card-select" name="card-rank" id="card-rank-{{ player }}-{{ card }}" onchange="change_select()">
+                            <option selected></option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>J</option>
+                            <option>Q</option>
+                            <option>K</option>
+                            <option>A</option>
+                        </select>
+
+                        <label for="card-suit-{{ player }}-{{ card }}"></label>
+                        <select class="card-select" name="card-rank" id="card-suit-{{ player }}-{{ card }}" onchange="change_select()">
+                            <option selected></option>
+                            <option>♠</option>
+                            <option>♣</option>
+                            <option>♦</option>
+                            <option>♥</option>
+                        </select>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>

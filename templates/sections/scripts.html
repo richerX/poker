@@ -1,6 +1,9 @@
 <script>
     let stage = 0;
     let max_stage = {{ stages|length }} - 1
+    let rank_mapping = {"": "", "1": "1", "2" : "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7",
+                        "8": "8", "9": "9", "10" : "10", "J": "11", "Q": "12", "K": "13", "A": "14"}
+    let suit_mapping = {"": "", "♠": "spades", "♣": "clubs", "♦": "diamonds", "♥": "hearts"}
 
     function change_stage(delta){
         stage += delta
@@ -13,7 +16,22 @@
         document.getElementById("stage-" + stage).style.height = "100%";
     }
 
-    function redirect_func(path){
+    function redirect_func(path) {
         window.location.href = path;
+    }
+
+    function change_select() {
+        let selects = document.getElementsByClassName("card-select");
+        let images = document.getElementsByClassName("card-img");
+        for (let i = 0; i < selects.length; i += 2) {
+            let index = i / 2
+            let rank = rank_mapping[selects[i].value]
+            let suit = suit_mapping[selects[i + 1].value]
+            if (rank !== "" && suit !== "") {
+                images[index].src = `../static/media/${rank}-${suit}.png`
+            } else {
+                images[index].src = `../static/media/jokers.png`
+            }
+        }
     }
 </script>
