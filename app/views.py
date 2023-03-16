@@ -10,7 +10,7 @@ def index_page(request):
 
 def generator_page(request):
     template = loader.get_template('generator.html')
-    context = {"stages": Game().play().get_context()}
+    context = {"stages": Game(players = 3).play().get_context()}
     return HttpResponse(template.render(context, request))
 
 
