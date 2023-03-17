@@ -42,16 +42,16 @@
             total += 1
         }
 
+        let chances_fields = document.getElementsByClassName("name")
+        for (let i = 0; i < chances_fields.length; i++) {
+            chances_fields[i].innerHTML = chances_fields[i].innerHTML.split(" ")[0];
+        }
+
         if (jokers <= count_predictions_with_max_jokers) {
             $.ajax({type: "POST",
                 url: "get_predictions",
                 data: {csrfmiddlewaretoken: "{{ csrf_token }}", object: JSON.stringify(selected_dict)},
                 success: function(response) {predictor_get_predictions(response);}});
-        } else {
-            let chances_fields = document.getElementsByClassName("name")
-            for (let i = 0; i < chances_fields.length; i++) {
-                chances_fields[i].innerHTML += chances_fields[i].innerHTML.split(" ")[0];
-            }
         }
     }
 
@@ -63,7 +63,7 @@
         }
         let chances_fields = document.getElementsByClassName("name");
         for (let i = 0; i < chances_fields.length; i++) {
-            chances_fields[i].innerHTML += "(" + chances[i] + "%)";
+            chances_fields[i].innerHTML += " (" + chances[i] + "%)";
         }
     }
 </script>

@@ -1,8 +1,6 @@
 {% for player in players_length %}
     <div class={{ actor }}>
-        <div class="name">
-            {{ actor|capfirst }}
-        </div>
+        <div class="name">{{ actor|capfirst }}</div>
         <div class="cards">
             {% for card in cards_length %}
                 <div style="height: 100%">
