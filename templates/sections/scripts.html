@@ -1,9 +1,12 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
 <script>
     let stage = 0;
     let max_stage = {{ stages|length }} - 1
     let rank_mapping = {"": "", "1": "1", "2" : "2", "3": "3", "4": "4", "5": "5", "6": "6", "7": "7",
                         "8": "8", "9": "9", "10" : "10", "J": "11", "Q": "12", "K": "13", "A": "14"}
     let suit_mapping = {"": "", "♠": "spades", "♣": "clubs", "♦": "diamonds", "♥": "hearts"}
+    let count_predictions_with_max_jokers = 2
 
     function change_stage(delta){
         stage += delta
@@ -23,15 +26,44 @@
     function change_select() {
         let selects = document.getElementsByClassName("card-select");
         let images = document.getElementsByClassName("card-img");
+        let total = 0, selected = 0, jokers = 0, selected_dict = {};
         for (let i = 0; i < selects.length; i += 2) {
             let index = i / 2
             let rank = rank_mapping[selects[i].value]
             let suit = suit_mapping[selects[i + 1].value]
+            selected_dict[selects[i].id.replace("-rank", "")] = [rank, suit]
             if (rank !== "" && suit !== "") {
                 images[index].src = `../static/media/${rank}-${suit}.png`
+                selected += 1
             } else {
                 images[index].src = `../static/media/jokers.png`
+                jokers += 1
             }
+            total += 1
+        }
+
+        if (jokers <= count_predictions_with_max_jokers) {
+            $.ajax({type: "POST",
+                url: "get_predictions",
+                data: {csrfmiddlewaretoken: "{{ csrf_token }}", object: JSON.stringify(selected_dict)},
+                success: function(response) {predictor_get_predictions(response);}});
+        } else {
+            let chances_fields = document.getElementsByClassName("name")
+            for (let i = 0; i < chances_fields.length; i++) {
+                chances_fields[i].innerHTML += chances_fields[i].innerHTML.split(" ")[0];
+            }
+        }
+    }
+
+    function predictor_get_predictions(response) {
+        let chances = response.split(";");
+        if (chances.length === 1) {
+            alert(response);
+            return;
+        }
+        let chances_fields = document.getElementsByClassName("name");
+        for (let i = 0; i < chances_fields.length; i++) {
+            chances_fields[i].innerHTML += "(" + chances[i] + "%)";
         }
     }
 </script>

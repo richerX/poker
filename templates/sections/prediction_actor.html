@@ -9,8 +9,8 @@
                     <img class="card-img" src="../static/media/jokers.png" alt="card">
 
                     <div class="drop-down-menu-div">
-                        <label for="card-rank-{{ player }}-{{ card }}"></label>
-                        <select class="card-select" name="card-rank" id="card-rank-{{ player }}-{{ card }}" onchange="change_select()">
+                        <label for="{{ actor }}{{ player }}-card{{ card }}-rank"></label>
+                        <select class="card-select" id="{{ actor }}{{ player }}-card{{ card }}-rank" onchange="change_select()">
                             <option selected></option>
                             <option>2</option>
                             <option>3</option>
@@ -27,8 +27,8 @@
                             <option>A</option>
                         </select>
 
-                        <label for="card-suit-{{ player }}-{{ card }}"></label>
-                        <select class="card-select" name="card-rank" id="card-suit-{{ player }}-{{ card }}" onchange="change_select()">
+                        <label for="{{ actor }}{{ player }}-card{{ card }}-suit"></label>
+                        <select class="card-select" id="{{ actor }}{{ player }}-card{{ card }}-suit" onchange="change_select()">
                             <option selected></option>
                             <option>♠</option>
                             <option>♣</option>

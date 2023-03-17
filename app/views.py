@@ -1,7 +1,11 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from engine.game.game import Game
+from engine.game.deck import Deck
+from engine.toolkit.predictor import Predictor
+from engine.toolkit.card import Card
 
 
 def index_page(request):
@@ -16,6 +20,33 @@ def generator_page(request):
 
 def predictor_page(request):
     return render(request, "predictor.html")
+
+
+def predictor_get_predictions(request):
+    deck: Deck = Deck()
+    dealer: list[Card] = []
+    players: list[list[Card]] = []
+
+    for key, value in json.loads(request.POST["object"]).items():
+        if not value[0] or not value[1]:
+            continue
+
+        card = Card(int(value[0]), value[1])
+        if card not in deck.cards:
+            return HttpResponse(f"You entered repeated card - {card}")
+        deck.remove(card)
+
+        if key.startswith("dealer"):
+            dealer.append(card)
+            continue
+
+        index = int(key.split("-")[0].strip("player"))
+        while len(players) < index:
+            players.append(list())
+        players[index - 1].append(card)
+
+    return HttpResponse(";".join(map(lambda x: str(x), Predictor(deck.cards, dealer, players).chances)))
+    # return HttpResponse(Predictor(deck, dealer, players).chances)
 
 
 def visor_page(request, current = 1):
