@@ -46,7 +46,6 @@ def predictor_get_predictions(request):
         players[index - 1].append(card)
 
     return HttpResponse(";".join(map(lambda x: str(x), Predictor(deck.cards, dealer, players).chances)))
-    # return HttpResponse(Predictor(deck, dealer, players).chances)
 
 
 def visor_page(request, current = 1):
