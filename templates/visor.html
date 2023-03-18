@@ -14,8 +14,19 @@
         {% include "sections/header.html" %}
 
         <main class="rectangle-main">
-            <div class="main-text">
-                Visor
+            <div class="upload-wrap">
+                <div class="upload">
+                    <div class="image"></div>
+                    <input type="file" id="image-upload" style="display:none"/>
+                    <button class="menu-button upload_button" type="submit" onclick="redirect_func('/generator')">
+                        <strong>Upload Image</strong>
+                    </button>
+                </div>
+            </div>
+
+            <div class="cards-wrap">
+                <div class="cards">
+                </div>
             </div>
         </main>
 
