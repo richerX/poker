@@ -38,10 +38,10 @@
 
 .cards {
     position: relative;
-    width: 80%;
+    width: 60%;
     height: 70%;
 
-    left: 10%;
+    left: 20%;
     bottom: 5%;
 
     display: flex;
@@ -49,6 +49,7 @@
     justify-content: center;
     gap: 20px;
 
+    border: 6px solid #F8F8F8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }

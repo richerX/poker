@@ -1,17 +1,3 @@
-.main-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    text-align: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: var(--font-big);
-}
-
 .upload-wrap {
     position: absolute;
     width: 35%;
@@ -40,9 +26,9 @@
     aspect-ratio: 4 / 3;
     top: 15%;
 
-    border-radius: 20px;
     border: 6px solid #F8F8F8;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
     background: url("../../static/media-2/vision-2.png") center;
     background-size: cover;
 }
@@ -68,10 +54,10 @@
 .cards {
     width: 90%;
     height: 80%;
-    border-radius: 20px;
 
     border: 6px solid #F8F8F8;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
 }
 
 .row {
