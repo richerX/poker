@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from app.views import index_page, generator_page, visor_page, predictor_page, predictor_get_predictions
+from app.views import index_page, generator_page, visor_page, predictor_page, predictor_get_predictions, visor_analyze_image
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('predictor/', predictor_page),
     path('predictor/get_predictions', predictor_get_predictions),
     path('visor/', visor_page),
+    path('visor/analyze_image', visor_analyze_image),
 ]

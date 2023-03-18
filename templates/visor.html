@@ -16,9 +16,9 @@
         <main class="rectangle-main">
             <div class="upload-wrap">
                 <div class="upload">
-                    <div class="image"></div>
-                    <input type="file" id="image-upload" style="display:none"/>
-                    <button class="menu-button upload_button" type="submit" onclick="redirect_func('/generator')">
+                    <div class="image" id="image-place"></div>
+                    <input type="file" id="image-upload" name="image-upload" style="display:none"/>
+                    <button class="menu-button upload_button" id="image-button" type="submit">
                         <strong>Upload Image</strong>
                     </button>
                 </div>
@@ -26,6 +26,59 @@
 
             <div class="cards-wrap">
                 <div class="cards">
+                    <div class="row">
+                        <div style="height: 100%">
+                            <img class="card" id="card-1" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-1"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-2" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-2"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-3" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-3"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-4" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-4"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-5" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-5"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div style="height: 100%">
+                            <img class="card" id="card-6" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-6"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-7" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-7"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-8" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-8"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-9" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-9"></div>
+                        </div>
+
+                        <div style="height: 100%">
+                            <img class="card" id="card-10" src="../static/media/jokers.png">
+                            <div class="card-text" id="card-text-10"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

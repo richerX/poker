@@ -13,8 +13,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-ToDo.txt
+my_files/ToDo.txt
 runs
-scheme.drawio
-screenshots
-background.psd
+my_files/scheme.drawio
+my_files/background.psd
+tmp
+my_files
